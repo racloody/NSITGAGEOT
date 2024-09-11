@@ -7,6 +7,8 @@ def puissance (a,n):
     if isinstance (n, int): #On verifie que n est entier
         if n == 0:
             return 1 # Si n = 0 On retourne 1
+        elif a == 0 :
+            print("undefined")
         else :
             return a*puissance(a, n-1) #Sinon on calcule la puissance
 print(puissance(a,n)) #On affiche la puissance
