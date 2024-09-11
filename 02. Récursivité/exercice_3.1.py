@@ -9,4 +9,4 @@ def puissance (a,n):
             return 1 # Si n = 0 On retourne 1
         else :
             return a*puissance(a, n-1) #Sinon on calcule la puissance
-print(puissance(a,n))
+print(puissance(a,n)) #On affiche la puissance
