@@ -19,6 +19,10 @@ class temps():
                 if tps2.seconde > self.seconde :
                     self.minute += -1
                     self.seconde += 60
+                    if self.minute < tps2.minute:
+                        self.heure+= -1
+                        self.minute += 60
+
                     hr_fin = self.heure - tps2.heure
                     min_fin = self.minute - tps2.minute
                     sec_fin = self.seconde - tps2.seconde
