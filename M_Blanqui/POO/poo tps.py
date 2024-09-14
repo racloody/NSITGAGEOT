@@ -1,5 +1,5 @@
 """Programme qui calcule une opération entre deux heures différentes (opération et soustraction)"""
-class temps():
+class Temps():
     def __init__(self,h,m,s):
         self.heure = h #Heure
         self.minute = m #Minute
@@ -12,7 +12,7 @@ class temps():
         sec_fin = (self.seconde + tps2.seconde) % 60
         min_fin = (self.minute + tps2.minute + (self.seconde + tps2.seconde)//60) % 60
         hr_fin = (self.heure + tps2.heure + (self.minute + tps2.minute)//60)
-        temps_fin = temps(hr_fin,min_fin,sec_fin)
+        temps_fin = Temps(hr_fin,min_fin,sec_fin)
         return temps_fin
     
     def __sub__(self,tps2): #Modifie l'opérateur - pour la soustraction de deux temps
@@ -28,7 +28,7 @@ class temps():
                     hr_fin = self.heure - tps2.heure
                     min_fin = self.minute - tps2.minute
                     sec_fin = self.seconde - tps2.seconde
-                    temps_fin = temps(hr_fin,min_fin,sec_fin)
+                    temps_fin = Temps(hr_fin,min_fin,sec_fin)
                     return temps_fin
             
                 elif tps2.minute > self.minute:
@@ -37,13 +37,13 @@ class temps():
                     hr_fin = self.heure - tps2.heure
                     min_fin = self.minute - tps2.minute
                     sec_fin = self.seconde - tps2.seconde
-                    temps_fin = temps(hr_fin,min_fin,sec_fin)
+                    temps_fin = Temps(hr_fin,min_fin,sec_fin)
                     return temps_fin
             else:
                 hr_fin = self.heure - tps2.heure
                 min_fin = self.minute - tps2.minute
                 sec_fin = self.seconde - tps2.seconde
-                temps_fin = temps(hr_fin,min_fin,sec_fin)
+                temps_fin = Temps(hr_fin,min_fin,sec_fin)
                 return temps_fin   
         else:
             return "improssible à déterminer, entrez une heure inferieure à la première" #Envoie un message d'erreur si la soustraction est impossible
@@ -56,8 +56,8 @@ hours2 , minutes2 , seconds2 = heure_2.split(':') #Sépare l'entrée utilisateur
 hours1 , minutes1 , seconds1, hours2 , minutes2 , seconds2 = int(hours1) , int(minutes1) , int(seconds1) , int(hours2) , int(minutes2) , int(seconds2) #convertit les strings en int gr^ca à l'assignation multiple
 
 #associe les variables demandées à l'utilisateur sur les attributs de la classe
-temps1=temps(hours1,minutes1,seconds1)
-temps2=temps(hours2,minutes2,seconds2)
+temps1=Temps(hours1,minutes1,seconds1)
+temps2=Temps(hours2,minutes2,seconds2)
 #Laisser l'utilisateur choisir entre l'addition et la soustraction
 opé=input("Choisissez une opération (+/-) : ")
 #Afficher le resultat selon l'opération choisie
