@@ -1,4 +1,6 @@
-"""Programme qui calcule une opération entre deux heures différentes (opération et soustraction)"""
+"""
+Programme qui calcule une opération entre deux heures différentes (opération et soustraction)
+"""
 class Temps():
     def __init__(self,h,m,s):
         self.heure = h #Heure
