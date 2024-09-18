@@ -9,13 +9,5 @@ def s_recur(n):
     	    return 1
 
 
-print(s_recur(5))
+print(s_recur(int(input("Enter a positive integer: "))))
 
-"""Preuves
-S1 = 1 + 2 + 3 + 4 + 5 = 15
-S2 = 1 + 2 + 3 + 4 + 5 + 6 = 21
-S3 = 1 + 2 + 3 + 4 + 5 + 6 + 7 = 28
-S4 = 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 = 36
-S5 = 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 = 45
-
-"""
