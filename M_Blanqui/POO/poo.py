@@ -1,3 +1,5 @@
+import random as rd
+from time import sleep 
 class Personnage:
     """
     Personnage d'un jeu de type hack 'n slash
@@ -32,17 +34,45 @@ class Personnage:
     def getPosition(self):
         return self._position
     
-    def setPv(self,new_pv):
-        self._pv=new_pv
+    def setPv(self,degats):
+        self._pv -= degats
     
-    def setPosition(self,(x,y)):
-        self._position=(x,y)
+
 
     def setDegats(self,new_degats):
         if isinstance(new_degats,int) and new_degats>=0:
             self._degats=new_degats
-        
     
-    
+    def __str__(self):
+        return "Il reste {} PV à {}.".format(self.getPv(),self.getNom())
 
+    def attaque(self,adversaire):
+        degats=rd.randint(0,self._degats)
+        adversaire.setPv(+degats)
+        print("{} attaque {} et lui inflige {} points de dommages.".format(self.getNom(),adversaire.getNom(),degats))
+
+nolan=Personnage("Nolan",80,10)
+paul=Personnage("Paul",80,10)
+
+tour = 0
+jeu = True
+while jeu :
+
+    if tour == 0:
+        print("C'est au tour de {} qui a {} PV.".format(nolan.getNom(), nolan.getPv()))
+        tour = 1
+        nolan.attaque(paul)
+        sleep(1)
+        if paul.getPv()<=0:
+            jeu = False
+            print ("Le gagnant est {}.".format(nolan.getNom()))
+
+    else:
+        print("C'est au tour de {} qui a {} PV. ".format(paul.getNom(), paul.getPv()))
+        tour = 0
+        paul.attaque(nolan)
+        sleep(1)
+        if nolan.getPv()<=0:
+            jeu = False
+            print ("Le gagnant est {}.".format(paul.getNom()))
         
