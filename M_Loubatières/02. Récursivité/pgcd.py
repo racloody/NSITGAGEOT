@@ -10,3 +10,4 @@ def pgcd(a, b):
     
 print(pgcd(int(input("a : ")), int(input("b : "))))
     
+    
