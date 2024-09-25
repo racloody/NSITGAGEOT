@@ -1,9 +1,9 @@
-l = list
-def permut(l):
-    if len(l) == 1:
-        yield l
-    else:
-        for i in range(len(l)):
-            for j in permut(l[:i] + l[i+1:]):
-                yield l[i:i+1] + j
-                
+
+#Écrire une fonction qui prend une liste A de taille n et renvoie la liste des permutations de A.
+def permutation(a):
+    length = len(a)
+    for i in range(length):
+        for j in range(i+1,length):
+            a[i],a[j] = a[j],a[i]
+            yield a
+            a[i],a[j] = a[j],a[i]
