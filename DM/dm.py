@@ -34,13 +34,14 @@ def positifs(L):
 print(positifs([-1,1,-2,12,-4,5,-3]))
 
 def nb_chemins(nb_marches):
-    """
-    Retourne le nombre de façons de monter un escalier en montant d'une ou deux marches à chaque fois.
-    """
-    if nb_marches == 0:
+    """Retourne le nombre de façons de monter un escalier en montant
+    d'une ou deux marches à chaque pas."""
+    assert nb_marches > 0, 'nb_marches > 0 !!'
+
+    if nb_marches == 1:
         return 1
-    elif nb_marches == 1:
-        return 1
+    elif nb_marches == 2:
+        return 2
     else:
         return nb_chemins(nb_marches - 1) + nb_chemins(nb_marches - 2)
     
